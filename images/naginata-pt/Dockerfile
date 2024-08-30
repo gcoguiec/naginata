@@ -1,0 +1,1 @@
+FROM naginata-base:latest

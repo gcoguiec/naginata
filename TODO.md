@@ -1,0 +1,9 @@
+- [x] The base image should be lighter. The container layers must be put on the diet. Naginata download and run/start-up should be blazing fast.
+- [x] Avoid compiling dependencies and/or leverage a multistage build.
+- [ ] Naginata should have its own dotfiles and not mine.
+- [ ] No vulnerabilities in the security scan, thank you very much.
+- [x] I'd suggest installing Helix without any grammar in the base image.
+- [ ] Recipes for combining containers via a docker-compose file (wireguard, OpenVPN, ...) and sending all the traffic through a specific container (or something in the same spirit).
+- [ ] Recipes for tryhackme, hackthebox and co.
+- [ ] Recipes to pass through GPU capabilities into a container from the host.
+- [ ] Statically compile all the things to facilitate lateral unpacking.
