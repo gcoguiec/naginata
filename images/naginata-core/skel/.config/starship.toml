@@ -4,7 +4,7 @@ format = """
 [┌聾](fg:#a3feff)$username [at](fg:#b362ff) $hostname [in](fg:#f89f00) $directory$cmd_duration
 [└聾](fg:#a3feff)$character"""
 right_format = """
-$git_branch$git_status$package$aws$crystal$deno$elixir$erlang$golang$julia$kotlin$lua$nix_shell$nodejs$python$rlang$rust$swift$terraform$zig
+$git_branch$git_status$package$bun$cmake$c$deno$golang$lua$nix_shell$nodejs$container$python$rust$terraform$zig
 """
 
 [username]
@@ -69,8 +69,19 @@ style = ""
 [aws]
 disabled = true
 
+[azure]
+disabled = true
+
 [battery]
 disabled = true
+
+[buf]
+disabled = true
+
+[bun]
+format = "[](fg:#5c5a56) $symbol [$version]($style) "
+symbol = '🍔'
+style = "fg:white"
 
 [cmake]
 format = "[](fg:#5c5a56) [$symbol](fg:#a4ff86)[( $version)]($style) "
@@ -83,6 +94,10 @@ detect_folders = []
 [cobol]
 disabled = true
 
+[c]
+format = "[](fg:#5c5a56) [$version]($style) "
+style = "fg:white"
+
 [cmd_duration]
 format = "[$duration]($style)"
 style = "fg:#444168"
@@ -93,7 +108,15 @@ show_notifications = false
 [conda]
 disabled = true
 
+[container]
+format = "[](fg:#5c5a56) $symbol [$name]($style) "
+symbol = ""
+style = "fg:white"
+
 [crystal]
+disabled = true
+
+[daml]
 disabled = true
 
 [dart]
@@ -107,6 +130,9 @@ style = "fg:white"
 detect_extensions = []
 detect_files = ["mod.ts", "deps.ts"]
 detect_folders = []
+
+[direnv]
+disabled = true
 
 [docker_context]
 symbol = ""
@@ -127,10 +153,22 @@ disabled = true
 [erlang]
 disabled = true
 
+[fenel]
+disabled = true
+
 [fill]
 disabled = true
 
+[fossil_branch]
+disabled = true
+
+[fossil_metrics]
+disabled = true
+
 [gcloud]
+disabled = true
+
+[gleam]
 disabled = true
 
 [golang]
@@ -141,6 +179,18 @@ style = "fg:white"
 detect_extensions = ["go"]
 detect_files = ["go.mod", "go.sum", "glide.yaml", "Gopkg.yml", "Gopkg.lock", ".go-version"]
 detect_folders = ["Godeps"]
+
+[guix_shell]
+disabled = true
+
+[gradle]
+disabled = true
+
+[haskell]
+disabled = true
+
+[haxe]
+disabled = true
 
 [helm]
 disabled = true
@@ -169,10 +219,16 @@ detect_extensions = ["lua"]
 detect_files = 	[".lua-version"]
 detect_folders = ["lua"]
 
+[meson]
+disabled = true
+
 [memory_usage]
 disabled = true
 
 [hg_branch]
+disabled = true
+
+[nats]
 disabled = true
 
 [nim]
@@ -195,6 +251,12 @@ not_capable_style = "fg:#fc678d"
 [ocaml]
 disabled = true
 
+[odin]
+disabled = true
+
+[opa]
+disabled = true
+
 [openstack]
 disabled = true
 
@@ -212,6 +274,9 @@ disabled = true
 [php]
 disabled = true
 
+[pijul_channel]
+disabled = true
+
 [pulumi]
 disabled = true
 
@@ -226,9 +291,15 @@ style = "fg:white"
 python_binary = ["python3"]
 detect_extensions = ["py", "pyc"]
 detect_folders = []
-detect_files = [".python-version", "Pipfile", "requirements.txt"]
+detect_files = [".python-version", "Pipfile", "requirements.txt", "poetry.lock"]
+
+[quarto]
+disabled = true
 
 [rlang]
+disabled = true
+
+[raku]
 disabled = true
 
 [red]
@@ -258,7 +329,16 @@ disabled = true
 [singularity]
 disabled = true
 
+[solidity]
+disabled = true
+
+[spack]
+disabled = true
+
 [status]
+disabled = true
+
+[sudo]
 disabled = true
 
 [swift]
@@ -274,6 +354,9 @@ detect_files = []
 detect_folders = [".terraform"]
 
 [time]
+disabled = true
+
+[typst]
 disabled = true
 
 [vagrant]
