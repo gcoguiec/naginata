@@ -354,7 +354,7 @@ RUN apk update -q \
   sed -i -e 's/^root::/root:!:/' /etc/shadow \
   && echo "%wheel ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/${naginata_user} \
   && adduser -D ${naginata_user} -u $naginata_uid -G wheel -s /usr/bin/fish \
-    -k /etc/skell -h /home/${naginata_user}
+    -h /home/${naginata_user}
 
 USER ${naginata_user}:wheel
 WORKDIR /home/${naginata_user}
@@ -367,5 +367,8 @@ RUN wget -q https://starship.rs/install.sh -O install-starship.sh \
   && rm install-starship.sh \
   && sudo apk del upx \
   && sudo apk cache clean
+
+
+COPY local.fish /home/${naginata_user}/.local.fish
 
 CMD ["/usr/bin/fish"]

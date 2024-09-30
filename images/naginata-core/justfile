@@ -1,0 +1,14 @@
+_default:
+  @just --list
+
+# Build the core image.
+build *args:
+  docker build -t naginata/core {{args}} --build-arg build_platform={{arch()}} .
+
+# Execute the core image.
+run *args:
+  docker run --rm {{args}} -it naginata/core
+
+# Clean-up all images and volumes.
+mrproper:
+  docker system prune -a --volumes
