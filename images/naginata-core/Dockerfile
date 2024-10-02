@@ -347,14 +347,14 @@ ENV REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
 # TODO: do some magic and replace grc with a smaller footprint coloriser thingy.
 RUN apk update -q \
-  && apk add --upgrade --no-cache ca-certificates sudo upx \
+  && apk add --upgrade --no-cache ca-certificates sudo \
     openssh-client-common openssh-client-default libgcc libstdc++ \
   && update-ca-certificates \
   # CVE-2019-5021
   sed -i -e 's/^root::/root:!:/' /etc/shadow \
   && echo "%wheel ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/${naginata_user} \
   && adduser -D ${naginata_user} -u $naginata_uid -G wheel -s /usr/bin/fish \
-    -k /etc/skell -h /home/${naginata_user}
+    -h /home/${naginata_user}
 
 USER ${naginata_user}:wheel
 WORKDIR /home/${naginata_user}
@@ -362,10 +362,11 @@ WORKDIR /home/${naginata_user}
 # starship
 RUN wget -q https://starship.rs/install.sh -O install-starship.sh \
   && sh install-starship.sh -y 1> /dev/null \
-  && sudo upx --best --lzma --overlay=strip /usr/local/bin/starship \
   # cleanup
   && rm install-starship.sh \
-  && sudo apk del upx \
   && sudo apk cache clean
+
+
+COPY local.fish /home/${naginata_user}/.local.fish
 
 CMD ["/usr/bin/fish"]
