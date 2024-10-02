@@ -349,9 +349,9 @@ format = "[](fg:#5c5a56) [$symbol](fg:#b362ff) [$workspace]($style) "
 version_format = "${raw}"
 symbol = ""
 style = "fg:white"
-detect_extensions = ["tf", "tfplan", "tfstate"]
+detect_extensions = ["tf", "tf.json", "tfplan", "tfstate", "tofu", "tofu.json"]
 detect_files = []
-detect_folders = [".terraform"]
+detect_folders = [".terraform", ".tofu"]
 
 [time]
 disabled = true
